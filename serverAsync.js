@@ -2,8 +2,8 @@ var http = require('http');
 var fs = require('fs');
 
 /**
- * 1 Блокирует. Использовать там где нет паралельных процессов
- * 2 Работает try catch
+ * 1 Не Блокирует
+ * 2 Не Работает try catch
  * 3 Прост и понятен
  */
 http.createServer(function(req,res){
