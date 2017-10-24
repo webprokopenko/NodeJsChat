@@ -6,7 +6,7 @@ var fs = require('fs');
  * 2 Не Работает try catch
  * 3 Прост и понятен
  */
-http.createServer(function(req,res){
+var server = http.createServer(function(req,res){
     var info;
 
     if(req.url == '/'){
@@ -26,3 +26,11 @@ http.createServer(function(req,res){
          */
     }
 }).listen(3000);
+
+var serverClose = setTimeout(function(){
+    server.close();
+},2500);
+var memoryUsage = setInterval(function(){
+    console.log(process.memoryUsage())
+}, 1000);
+memoryUsage.unref();
