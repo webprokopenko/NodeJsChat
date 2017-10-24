@@ -1,8 +1,8 @@
 var user = require('./user');
 
 function run(){
-    var Vasya = new user.User("Vasya");
-    var Petya = new user.User("Petya");
+    var Vasya = new user("Vasya");
+    var Petya = new user("Petya");
     
     Vasya.hello(Petya);
     

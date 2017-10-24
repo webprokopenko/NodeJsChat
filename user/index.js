@@ -8,4 +8,4 @@ User.prototype.hello = function(who){
 }
 console.log("User Js is required");
 
-exports.User = User;
+module.exports = User;
