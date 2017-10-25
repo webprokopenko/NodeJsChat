@@ -4,5 +4,5 @@ fs.readFile(__filename, function(err,data){
     if(err)
         console.log(err);
     else
-        console.log(data);
+        console.log(data.toString('utf8'));
 })
