@@ -1,4 +1,5 @@
 var express = require('express');
+var http = require('http');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -9,6 +10,29 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+app.set('port',3000);
+http.createServer(app).listen(app.get('port'), function(){
+  console.log('Express server listening on port '+ app.get('port'));
+});
+  //Middleware
+  app.use(function(req,res,next){
+    if(req.url == '/'){
+      res.end('Hello');
+    }else{
+      next();
+    }
+  });
+  app.use(function(req,res,next){
+    if(req.url == '/test'){
+      res.end('Page Test');
+    }else{
+      next();
+    }
+  });
+  app.use(function(req,res){
+    res.end(404,"Page not found");
+  });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
