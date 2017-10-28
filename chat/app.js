@@ -5,13 +5,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var config = require('./config');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-app.set('port',3000);
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(app).listen(config.get('port'), function(){
   console.log('Express server listening on port '+ app.get('port'));
 });
   //Middleware
